@@ -1,0 +1,64 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+// Variables
+$font-color: rgb(255, 255, 255);
+$background-color: rgb(250, 109, 250);
+$nav-bar-height: 55px;
+
+body {
+    background-color: $background-color;
+    color: $font-color;
+}
+
+nav {
+    height: $nav-bar-height;
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+nav img {
+    height: $nav-bar-height * 0.75;
+    border-radius: 20%;
+}
+nav > img:hover {
+    height: $nav-bar-height * 0.75;
+    backdrop-filter: drop-shadow(2px 2px 20% rgba(255, 255, 255, 0.5))
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+nav ul li {
+    list-style: none;
+    margin-top: $nav-bar-height * 0.25;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+
+
+// Index
+
+// Show
+.accordion {
+    color: black;
+    background-color: white;
+    width: 65vw;
+    margin-left: 2%;
+}
+.show-title {
+    margin-left: 2%;
+}
+
+// Edit
+
+// New
