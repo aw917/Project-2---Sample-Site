@@ -5,15 +5,16 @@ class Index extends React.Component {
     render () {
         const project = this.props.projects
         return (
-            <Layout>
+            <Layout
+            title="Home Page">
+                <h1>Projects</h1>
                 <div className="index-project-area">
-                    <h1>Projects:</h1>
                     {
                     this.props.projects.map((element, index) => {
                         return (
-                            <div>
+                            <div className="index-projects">
                                 <a href={`/portfolio/${element._id}`}>{element.name}</a>
-                                <img src={element.img} alt={element.name}/>
+                                <img src={element.img} alt={element.name} className="index-project-images"/>
                             </div>
                         )
                     })

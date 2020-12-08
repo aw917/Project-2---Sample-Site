@@ -4,8 +4,18 @@ const Layout = require('./Layout/Layout.jsx')
 class New extends React.Component {
     render () {
         return (
-            <Layout>
-                <h1>test new</h1>
+            <Layout
+            title="Make new project page">
+                <h1>New project</h1>
+                <div className="new-input-box">
+                    <form action="/portfolio" method="POST">
+                        Name: <input type="text" name="name"/><br/>
+                        Image: <input type="text" name="img"/><br/>
+                        Description: <input type="text" name="description"/><br/>
+                        Github Link: <input type="text" name="git"/><br/>
+                        <input type="submit" name="" value="Create Project"/>
+                    </form>
+                </div>
             </Layout>
         )
     }

@@ -56,6 +56,10 @@ app.get('/portfolio', (req, res) => {
         }
     })
 })
+// About ========
+app.get('/portfolio/about', (req, res) => {
+    res.render('About');
+})
 
 // New ========
 app.get('/portfolio/new', (req, res) => {
@@ -63,7 +67,7 @@ app.get('/portfolio/new', (req, res) => {
 })
 
 // Delete ========
-app.delete('/projects/:id', (req, res) => {
+app.delete('/portfolio/:id', (req, res) => {
     Project.findByIdAndDelete(req.params.id, (err, _) => {
         if(!err) {
             res.redirect('/portfolio')
