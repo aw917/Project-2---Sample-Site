@@ -34,7 +34,9 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 mongoose.connect(MONGO_STRING, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
 })
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');

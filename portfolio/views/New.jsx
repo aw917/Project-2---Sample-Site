@@ -13,7 +13,7 @@ class New extends React.Component {
                         Image: <input type="text" name="img"/><br/>
                         Description: <input type="text" name="description"/><br/>
                         Github Link: <input type="text" name="git"/><br/>
-                        <input type="submit" name="" value="Create Project"/>
+                        <input type="submit" name="" value="Create Project" id="new-submit-button"/>
                     </form>
                 </div>
             </Layout>

@@ -1,3 +1,8 @@
+/* 
+============
+ Global
+============
+*/
 body {
  background-image: url('http://i.huffpost.com/gen/2457764/images/o-PILLARS-OF-CREATION-facebook.jpg');
  /* width: 100vw; */
@@ -14,7 +19,11 @@ input {
 a {
   color: greenyellow;
 }
-
+/* 
+============
+ Nav Bar
+============
+*/
 nav {
   height: 75px;
   display: flex;
@@ -26,21 +35,19 @@ nav {
   border-style: solid;
   border-color: hotpink;
   margin-left: 0;
+  margin-right: 500px;
 }
-
 nav img {
   height: 50px;
   border-radius: 20%;
   margin-left: 5px;
   box-sizing: border-box;
 }
-
 nav img:hover {
   border: hotpink;
   border-style: solid;
   border-width: 3px;
 }
-
 nav ul {
   display: flex;
   align-items: center;
@@ -48,24 +55,25 @@ nav ul {
   margin-left: 2.5%;
   margin-right: 2.5%;
 }
-
 nav ul li {
   display: inline;
   list-style: none;
   padding-left: 2.5%;
   padding-right: 2.5%;
-  font-size: 24px;
+  font-size: 22px;
 }
-
 nav ul li a {
   color: hotpink;
 }
 
 
-/* Index */
+/* 
+============
+ Index
+============
+*/
 .index-project-area {
   display: grid;
-  /* width: 100vw; */
   height: 120vh;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -84,9 +92,9 @@ nav ul li a {
   align-items: center;
   padding: 5%;
   border-style: solid;
-  border-width: 2px;
+  border-width: 3px;
   border-radius: 10px;
-  border-color: rgb(53, 194, 255);
+  border-color: hotpink;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -102,7 +110,11 @@ nav ul li a {
     border-radius: 5px;
   }
 }
-/* Show */
+/* 
+============
+ Show
+============
+*/
 .show-box {
   display: flex;
   width: 75vw;
@@ -115,7 +127,7 @@ nav ul li a {
   align-items: center;
   padding: 5%;
   border-style: solid;
-  border-width: 2px;
+  border-width: 3px;
   border-radius: 10px;
   border-color: white;
   background-color: rgba(0, 0, 0, 0.7);
@@ -131,6 +143,20 @@ nav ul li a {
   max-width: 500px;
   max-height: 300px;
 }
+@media (max-width: 800px) {
+  .show-box{
+    height: 75vh;
+  }
+}
+@media (max-width: 800px) {
+  .show-box img{
+    max-width: 250px;
+    max-height: 250px;
+    height: auto;
+    width: auto;
+    border-radius: 5px;
+  }
+}
 .show-box p {
   color: hotpink;
 }
@@ -142,7 +168,7 @@ nav ul li a {
   align-items: center;
 }
 .edit-delete-buttons input {
-  background-color: rebeccapurple;
+  background-color: red;
   color: white;
   border-radius: 5px;
   padding-top: 2px;
@@ -150,8 +176,11 @@ nav ul li a {
   padding-left: 5px;
   padding-right: 5px;
 }
-/* Edit */
-/* New */
+/* 
+============
+ New
+============
+*/
 .new-input-box {
   display: flex;
   width: 75vw;
@@ -167,14 +196,126 @@ nav ul li a {
   border-radius: 10px;
   border-color: white;
   background-color: rgba(0, 0, 0, 0.7);
-  margin-top: 2.5%;
+  margin-top: 1%;
   margin-left: 50%;
   transform: translateX(-50%);
   line-height: 50px;
   font-size: 24px;
 }
+@media (max-width: 800px) {
+  .new-input-box input{
+    max-width: 125px;
+    height: auto;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  #new-submit-button {
+    max-width: 1000px;
+  }
+  .new-input-box {
+    height: 75vh;
+  }
+}
 .new-input-box input {
   background-color: hotpink;
   color: white;
   border-radius: 5px;
+  font-size: 18px;
+}
+/* 
+============
+ About
+============
+*/
+.about-box {
+  display: flex;
+  width: 75vw;
+  height: 50vw;
+  max-width: 900px;
+  max-height: 600px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  padding: 5%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  border-color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-top: 1%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  line-height: 50px;
+  font-size: 24px;
+  line-height: 90%;
+  text-align: center;
+}
+.about-box h3 {
+  line-height: 0;
+  color: hotpink;
+}
+.about-box ul {
+  margin-top: 0;
+  list-style: none;
+  color: greenyellow
+}
+@media (max-width: 800px) {
+  .about-box h3 {
+    font-size: 16px;
+  }
+  .about-box li {
+    font-size: 16px;
+  }
+  .about-box {
+    height: 75vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+}
+/* 
+============
+ Edit
+============
+*/
+.edit-input-box {
+  display: flex;
+  width: 75vw;
+  height: 50vw;
+  max-width: 900px;
+  max-height: 600px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  padding: 5%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  border-color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-top: 1%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  line-height: 50px;
+  font-size: 24px;
+}
+@media (max-width: 800px) {
+  .edit-input-box input{
+    max-width: 125px;
+    height: auto;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  #new-submit-button {
+    max-width: 1000px;
+  }
+  .edit-input-box {
+    height: 75vh;
+  }
+}
+.edit-input-box input {
+  background-color: greenyellow;
+  color: black;
+  border-radius: 5px;
+  font-size: 18px;
 }

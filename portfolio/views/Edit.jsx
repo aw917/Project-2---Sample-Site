@@ -7,12 +7,13 @@ class Edit extends React.Component {
         return (
             <Layout
             title="Edit Page">
-                <div className="new-input-box">
+            <h1>Edit {project.name}</h1>
+                <div className="edit-input-box">
                     <form action={`/portfolio/${project._id}?_method=PUT`} method="POST">
-                        Name: <input type="text" name="name" value={project.name}/><br/>
-                        Image: <input type="text" name="img" value={project.img}/><br/>
-                        Description: <input type="text" name="description" value={project.description}/><br/>
-                        Github Link: <input type="text" name="git" value={project.git}/><br/>
+                        Name: <input type="text" name="name" defaultValue={project.name} /><br/>
+                        Image: <input type="text" name="img" defaultValue={project.img} /><br/>
+                        Description: <input type="text" name="description" defaultValue={project.description} /><br/>
+                        Github Link: <input type="text" name="git" defaultValue={project.git}/><br/>
                         <input type="submit" name="" value="Update Project"/>
                     </form>
                 </div>
