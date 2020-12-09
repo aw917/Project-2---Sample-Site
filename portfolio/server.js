@@ -9,12 +9,9 @@ if(process.env.NODE_ENV === 'development'){
 require('dotenv').config();
 const mongoose = require('mongoose');
 const express = require('express');
-// const bootstrap = require('bootstrap')
 const app = express();
-const MONGO_STRING = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI;
 const Project = require('./models/projects.js');
-// commented to confirm that it's 100% through mongoDB
-// const projects = require('./models/projects.js')
 const { update } = require('./models/projects.js');
 const methodOverride = require('method-override');
 const db = mongoose.connection;
@@ -27,9 +24,8 @@ const PORT = process.env.PORT || 3000; // for heroku
 // ==================
 // Database
 // ==================
-const MONGODB_URI = process.env.MONGODB_URI; // you need to let heroku determine the path
 // Connect to Mongo
-mongoose.connect(MONGO_STRING, {
+mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
