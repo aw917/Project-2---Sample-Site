@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 // const bootstrap = require('bootstrap')
 const app = express();
-const MONGO_STRING = process.env.MONGO_STRING;
+const MONGO_STRING = process.env.MONGODB_URI;
 const Project = require('./models/projects.js');
 // commented to confirm that it's 100% through mongoDB
 // const projects = require('./models/projects.js')
