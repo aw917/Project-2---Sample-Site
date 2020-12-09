@@ -46,7 +46,6 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use((req, res, next) => {
-    req.body.readyToEat = req.readyToEat === 'on' ? true : false;
     next();
 })
 app.use((req, res, next) => {
