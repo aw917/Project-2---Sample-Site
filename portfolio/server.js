@@ -6,14 +6,13 @@ if(process.env.NODE_ENV === 'development'){
 // ==================
 // Stack inputs
 // ==================
-require('dotenv').config();
 const mongoose = require('mongoose');
 const express = require('express');
+const methodOverride = require('method-override');
 const app = express();
 const MONGODB_URI = process.env.MONGODB_URI;
 const Project = require('./models/projects.js');
 const { update } = require('./models/projects.js');
-const methodOverride = require('method-override');
 const db = mongoose.connection;
 
 // ==================
@@ -45,8 +44,9 @@ db.on('open' , ()=>{});
 // ==================
 // Middleware / view engines
 // ==================
-app.use(express.urlencoded({extended : true}))
+app.use(express.urlencoded({extended : false}))
 app.use(express.static('public'));
+app.use(express.json());
 app.use(methodOverride('_method'));
 app.use((req, res, next) => {
     req.body.readyToEat = req.readyToEat === 'on' ? true : false;
