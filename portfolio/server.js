@@ -65,6 +65,10 @@ app.engine('jsx', require('express-react-views').createEngine());
 // ==================
 // RESTful routes
 // ==================
+// Main page
+app.get('/', (req, res) => {
+    res.redirect('/portfolio')
+})
 // Index ========
 app.get('/portfolio', (req, res) => {
     // don't filter the information
