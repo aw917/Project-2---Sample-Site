@@ -1,3 +1,8 @@
+// for heroku
+if(process.env.NODE_ENV === 'development'){
+    require('dotenv').config()
+}
+
 // ==================
 // Stack inputs
 // ==================
@@ -6,16 +11,43 @@ const mongoose = require('mongoose');
 const express = require('express');
 // const bootstrap = require('bootstrap')
 const app = express();
-const PORT = 3000;
 const MONGO_STRING = process.env.MONGO_STRING;
 const Project = require('./models/projects.js');
 // commented to confirm that it's 100% through mongoDB
 // const projects = require('./models/projects.js')
 const { update } = require('./models/projects.js');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
+const db = mongoose.connection;
 
 // ==================
-// Middleware
+// Port
+// ==================
+const PORT = process.env.PORT || 3000; // for heroku
+
+// ==================
+// Database
+// ==================
+const MONGODB_URI = process.env.MONGODB_URI; // you need to let heroku determine the path
+// Connect to Mongo
+mongoose.connect(MONGO_STRING, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+})
+mongoose.connection.once('open', () => {
+    console.log('connected to mongo');
+})
+// Error / success
+db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+db.on('disconnected', () => console.log('mongo disconnected'));
+// open the connection to mongo
+db.on('open' , ()=>{});
+
+
+// ==================
+// Middleware / view engines
 // ==================
 app.use(express.urlencoded({extended : true}))
 app.use(express.static('public'));
@@ -32,15 +64,7 @@ app.use((req, res, next) => {
 // set up
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
-mongoose.connect(MONGO_STRING, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
-})
-mongoose.connection.once('open', () => {
-    console.log('connected to mongo');
-})
+
 
 // ==================
 // RESTful routes
